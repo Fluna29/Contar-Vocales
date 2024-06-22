@@ -3,11 +3,13 @@ package contarvocales;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String resultado = noEspaciosBlanco();
-        contarVocales(resultado);
+        try (sc) {
+            String resultado = noEspaciosBlanco();
+            contarVocales(resultado);
+        }
     }
 
     private static String noEspaciosBlanco() {
@@ -17,6 +19,7 @@ public class Main {
             cadena = sc.nextLine().trim(); // Elimina espacios al inicio y al final
         } while (cadena.isEmpty()); // Verifica si la cadena está vacía después de eliminar espacios
         return cadena.toLowerCase();
+        
     }
 
     public static void contarVocales(String cadena) {
@@ -28,4 +31,5 @@ public class Main {
         }
         System.out.println("La cadena de texto tiene " + contador + " vocales");
     }
+    
 }
